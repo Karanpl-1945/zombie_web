@@ -3,722 +3,278 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zombies - Sabhi Prakar Ke Janwaar</title>
-    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Zombies - The Ultimate Friend Group</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         :root {
             --zombie-green: #5c8d24;
-            --dark-accent: #1a1a1a;
-            --blood-red: #8a0303;
-            --off-white: #f5f5f5;
-            --zombie-yellow: #e6c229;
-            --purple-accent: #8a24d0;
+            --zombie-dark: #2c3e50;
+            --zombie-light: #ecf0f1;
+            --zombie-accent: #e74c3c;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--dark-accent);
-            color: var(--off-white);
-            line-height: 1.6;
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(92, 141, 36, 0.1) 0%, rgba(92, 141, 36, 0) 20%),
-                radial-gradient(circle at 90% 80%, rgba(138, 3, 3, 0.1) 0%, rgba(138, 3, 3, 0) 20%);
-            background-size: 100% 100%;
-            background-attachment: fixed;
+            background-color: var(--zombie-dark);
+            color: var(--zombie-light);
             overflow-x: hidden;
         }
         
-        .zombie-text {
-            font-family: 'Creepster', cursive;
-        }
-        
         header {
-            background: linear-gradient(to bottom, rgba(26, 26, 26, 0.95), rgba(26, 26, 26, 0.85));
-            padding: 2rem 0;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            border-bottom: 5px dashed var(--blood-red);
+            padding: 0 20px;
             position: relative;
-            overflow: hidden;
         }
         
-        header::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="%235c8d24" opacity="0.5"/></svg>');
-            z-index: -1;
-        }
-        
-        h1 {
-            font-size: 4.5rem;
+        .logo {
+            font-size: 5rem;
             color: var(--zombie-green);
-            text-shadow: 3px 3px 0 var(--blood-red), 6px 6px 0 rgba(0,0,0,0.5);
-            margin: 0;
-            letter-spacing: 3px;
-            position: relative;
-            z-index: 1;
-            animation: float 3s ease-in-out infinite;
+            text-shadow: 3px 3px 0 var(--zombie-accent);
+            margin-bottom: 20px;
+            font-family: 'Creepster', cursive;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
         
         .tagline {
-            font-size: 1.8rem;
-            color: var(--zombie-yellow);
-            font-style: italic;
-            margin-top: 0.5rem;
-            position: relative;
-            z-index: 1;
-            text-shadow: 2px 2px 3px rgba(0,0,0,0.8);
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 2rem;
-        }
-        
-        .intro {
-            background: rgba(26, 26, 26, 0.7);
-            border-radius: 15px;
-            padding: 2rem;
-            margin: 2rem 0;
-            text-align: center;
-            border: 2px solid var(--zombie-green);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .intro::before {
-            content: "";
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
-            background: linear-gradient(45deg, var(--blood-red), var(--zombie-green), var(--zombie-yellow), var(--purple-accent));
-            z-index: -1;
-            animation: gradient 10s ease infinite;
-            background-size: 400% 400%;
-        }
-        
-        .intro-content {
-            background: var(--dark-accent);
-            padding: 2rem;
-            border-radius: 12px;
-        }
-        
-        .intro h2 {
-            color: var(--zombie-yellow);
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 3px rgba(0,0,0,0.8);
-        }
-        
-        .intro p {
-            font-size: 1.1rem;
+            font-size: 1.5rem;
+            margin-bottom: 30px;
             max-width: 800px;
-            margin: 0 auto 1.5rem;
+            background-color: rgba(0,0,0,0.7);
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 5px solid var(--zombie-accent);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--zombie-green);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+        
+        .btn:hover {
+            background-color: var(--zombie-accent);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        
+        .members-section {
+            padding: 80px 20px;
+            background-color: var(--zombie-dark);
+            text-align: center;
+        }
+        
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 50px;
+            color: var(--zombie-green);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--zombie-accent);
         }
         
         .members-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         
         .member-card {
-            background: linear-gradient(to bottom right, rgba(40, 40, 40, 0.9), rgba(30, 30, 30, 0.9));
-            border: 2px solid var(--zombie-green);
-            border-radius: 15px;
-            padding: 1.8rem;
-            text-align: center;
-            transition: transform 0.4s, box-shadow 0.4s;
-            cursor: pointer;
-            position: relative;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: relative;
         }
         
         .member-card:hover {
-            transform: translateY(-15px) rotate(2deg);
-            box-shadow: 0 15px 30px rgba(92, 141, 36, 0.4);
-            border-color: var(--zombie-yellow);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
         }
         
-        .member-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(to right, var(--blood-red), var(--zombie-yellow));
-        }
-        
-        .member-name {
-            font-size: 1.6rem;
-            color: var(--zombie-yellow);
-            margin-bottom: 0.8rem;
-            font-weight: 600;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
-        }
-        
-        .member-image-container {
-            width: 160px;
-            height: 160px;
-            margin: 0 auto 1.5rem;
-            position: relative;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 4px solid var(--zombie-green);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-            transition: all 0.4s;
-        }
-        
-        .member-card:hover .member-image-container {
-            transform: scale(1.1);
-            border-color: var(--zombie-yellow);
-            box-shadow: 0 8px 25px rgba(230, 194, 41, 0.4);
-        }
-        
-        .member-image {
+        .member-img {
             width: 100%;
-            height: 100%;
+            height: 250px;
             object-fit: cover;
-            transition: transform 0.4s;
-        }
-        
-        .member-card:hover .member-image {
-            transform: scale(1.15);
-        }
-        
-        .member-bio {
-            font-size: 1rem;
-            color: var(--off-white);
-            min-height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0 10px;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(to right, var(--blood-red), #c0392b);
-            color: white;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 1.3rem;
-            margin-top: 2rem;
-            transition: all 0.4s;
-            border: none;
-            font-weight: 600;
-            box-shadow: 0 5px 15px rgba(138, 3, 3, 0.4);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-        
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to right, var(--zombie-green), #2ecc71);
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.4s;
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(138, 3, 3, 0.6);
-        }
-        
-        .cta-button:hover::before {
-            opacity: 1;
-        }
-        
-        footer {
-            background: linear-gradient(to top, rgba(26, 26, 26, 0.95), rgba(26, 26, 26, 0.85));
-            padding: 3rem 0;
-            text-align: center;
-            margin-top: 4rem;
-            border-top: 5px dashed var(--zombie-green);
-            position: relative;
-        }
-        
-        .footer-text {
-            font-family: sans-serif;
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-        
-        .footer-highlight {
-            color: var(--zombie-yellow);
-            font-weight: 600;
-        }
-        
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.95);
-            overflow: auto;
-            backdrop-filter: blur(5px);
-        }
-        
-        .modal-content {
-            background: linear-gradient(to bottom right, rgba(40, 40, 40, 0.95), rgba(30, 30, 30, 0.95));
-            margin: 5% auto;
-            padding: 3rem;
-            border: 3px solid var(--zombie-green);
-            width: 85%;
-            max-width: 900px;
-            position: relative;
-            border-radius: 15px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
-            animation: modalAppear 0.6s ease-out;
-        }
-        
-        .close-btn {
-            position: absolute;
-            top: 15px;
-            right: 25px;
-            color: var(--zombie-yellow);
-            font-size: 3rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-        
-        .close-btn:hover {
-            transform: rotate(90deg);
-            color: var(--blood-red);
-        }
-        
-        .member-details {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .member-header {
-            display: flex;
-            align-items: center;
-            width: 100%;
-            margin-bottom: 2rem;
-        }
-        
-        .member-details-img {
-            width: 220px;
-            height: 220px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid var(--zombie-green);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-            margin-right: 2.5rem;
+            border-bottom: 3px solid var(--zombie-green);
         }
         
         .member-info {
-            flex: 1;
+            padding: 20px;
         }
         
-        .member-details h2 {
-            color: var(--zombie-yellow);
-            font-size: 2.8rem;
-            margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 3px rgba(0,0,0,0.8);
+        .member-name {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--zombie-green);
         }
         
-        .member-details .role {
-            color: var(--blood-red);
-            font-size: 1.6rem;
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-            font-family: 'Creepster', cursive;
+        .member-desc {
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            color: #ccc;
         }
         
-        .member-details .full-bio {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            text-align: justify;
-            background: rgba(0,0,0,0.3);
-            padding: 1.8rem;
-            border-radius: 10px;
-            border-left: 4px solid var(--zombie-yellow);
+        .view-btn {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--zombie-light);
+            padding: 8px 15px;
+            border: 1px solid var(--zombie-green);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
         }
         
-        .member-quote {
-            font-style: italic;
-            color: var(--zombie-yellow);
-            margin: 1.5rem 0;
-            padding: 1rem;
-            border-left: 3px solid var(--blood-red);
-            background: rgba(138, 3, 3, 0.1);
-            border-radius: 0 8px 8px 0;
+        .view-btn:hover {
+            background-color: var(--zombie-green);
+            color: white;
         }
         
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
+        footer {
+            background-color: #1a1a1a;
+            padding: 30px 20px;
+            text-align: center;
         }
         
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        .footer-text {
+            margin-bottom: 20px;
         }
         
-        @keyframes modalAppear {
-            from { opacity: 0; transform: translateY(50px); }
-            to { opacity: 1; transform: translateY(0); }
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
         }
         
-        @media (max-width: 992px) {
-            h1 { font-size: 3.5rem; }
-            .tagline { font-size: 1.5rem; }
-            
-            .member-header {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .member-details-img {
-                margin-right: 0;
-                margin-bottom: 1.5rem;
-            }
+        .social-icon {
+            color: var(--zombie-light);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            color: var(--zombie-green);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            font-size: 0.8rem;
+            color: #777;
         }
         
         @media (max-width: 768px) {
-            h1 { font-size: 2.8rem; }
-            .tagline { font-size: 1.2rem; }
-            .intro h2 { font-size: 2rem; }
+            .logo {
+                font-size: 3rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
             
             .members-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            }
-            
-            .modal-content {
-                padding: 2rem 1.5rem;
-                width: 95%;
-            }
-            
-            .member-details h2 { font-size: 2.2rem; }
-            .member-details .role { font-size: 1.3rem; }
-            .member-details .full-bio { font-size: 1rem; }
-        }
-        
-        @media (max-width: 480px) {
-            h1 { font-size: 2.2rem; }
-            .intro h2 { font-size: 1.8rem; }
-            .members-grid { grid-template-columns: 1fr; }
-            
-            .member-details-img {
-                width: 180px;
-                height: 180px;
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             }
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <h1 class="zombie-text">ZOMBIES</h1>
-        <p class="tagline">Sabhi prakar ke janwaar dekhne ka ekmaatra destination</p>
+        <h1 class="logo">ZOMBIES</h1>
+        <p class="tagline">"Sabhi prakar ke janwaar dekhne ka ekmaatra destination..."</p>
+        <a href="members.html" class="btn">Meet The Horde</a>
     </header>
     
-    <div class="container">
-        <div class="intro">
-            <div class="intro-content">
-                <h2 class="zombie-text">The Undead Crew</h2>
-                <p>We are the Zombies - a group of unique individuals who may appear normal at first glance, but reveal our true chaotic, fun-loving, and slightly unhinged nature when together. This is our digital graveyard where all species of "janwaar" coexist in beautiful chaos.</p>
-                <p>From cricket enthusiasts to Shayari masters, scholarship hunters to gadget flexers - we've got every variety of human (and not-so-human) behavior represented in our group. Explore our undead family below!</p>
-            </div>
-        </div>
-        
+    <section class="members-section">
+        <h2 class="section-title">The Undead Crew</h2>
         <div class="members-grid">
-            <!-- Rupant Dixit -->
-            <div class="member-card" onclick="openModal('rupan')">
-                <div class="member-image-container">
-                    <img src="https://drive.google.com/uc?export=view&id=14j8GofQRH_1X9iR6pK4-53diM2LfrlON" alt="Rupant Dixit" class="member-image">
+            <div class="member-card">
+                <img src="Rupant Dixit.jpg" alt="Rupant Dixit" class="member-img">
+                <div class="member-info">
+                    <h3 class="member-name">Rupant Dixit</h3>
+                    <p class="member-desc">The humorist from Kanpur who never takes friends home...</p>
+                    <a href="members.html#rupant" class="view-btn">View Profile</a>
                 </div>
-                <h3 class="member-name">Rupant Dixit</h3>
-                <p class="member-bio">The Humorous Kanpuriya</p>
             </div>
             
-            <!-- Harsh Agrawalla -->
-            <div class="member-card" onclick="openModal('harsh')">
-                <div class="member-image-container">
-                    <img src="https://drive.google.com/uc?export=view&id=14IYrtp1nBxuKV839qpb3GfIrWX3REH-k" alt="Harsh Agrawalla" class="member-image">
+            <div class="member-card">
+                <img src="Harsh Agrawalla.jpg" alt="Harsh Agrawalla" class="member-img">
+                <div class="member-info">
+                    <h3 class="member-name">Harsh Agrawalla</h3>
+                    <p class="member-desc">The walking encyclopedia who knows everyone's roll numbers...</p>
+                    <a href="members.html#harsh" class="view-btn">View Profile</a>
                 </div>
-                <h3 class="member-name">Harsh Agrawalla</h3>
-                <p class="member-bio">The Walking Database</p>
             </div>
             
-            <!-- Karan Pratap Lohiya -->
-            <div class="member-card" onclick="openModal('karan')">
-                <div class="member-image-container">
-                    <img src="https://drive.google.com/uc?export=view&id=14H3faT_3mFpmyR3hAOGPWHwBc3uLmEEl" alt="Karan Lohiya" class="member-image">
+            <div class="member-card">
+                <img src="Karan_Lohiya.jpg" alt="Karan Lohiya" class="member-img">
+                <div class="member-info">
+                    <h3 class="member-name">Karan Lohiya</h3>
+                    <p class="member-desc">The cricketer with a sportsperson mentality and emotionless demeanor...</p>
+                    <a href="members.html#karan" class="view-btn">View Profile</a>
                 </div>
-                <h3 class="member-name">Karan Lohiya</h3>
-                <p class="member-bio">The Cricketer</p>
-            </div>
-            
-            <!-- Vedant Pimparwar -->
-            <div class="member-card" onclick="openModal('vedant')">
-                <div class="member-image-container">
-                    <img src="https://drive.google.com/uc?export=view&id=14Qyu6ce_-gbvD-4bVz1758oVzoZ90KOV" alt="Vedant Pimparwar" class="member-image">
-                </div>
-                <h3 class="member-name">Vedant Pimparwar</h3>
-                <p class="member-bio">The Roast Master</p>
-            </div>
-            
-            <!-- Durba Smriti Saha -->
-            <div class="member-card" onclick="openModal('durbasmriti')">
-                <div class="member-image-container">
-                    <img src="https://drive.google.com/uc?export=view&id=1nPXs_NPLB-1e8WXpWiJdgQNvwK1jfdWe" alt="Durbasmriti Saha" class="member-image">
-                </div>
-                <h3 class="member-name">Durbasmriti Saha</h3>
-                <p class="member-bio">The Bengali Humorist</p>
-            </div>
-            
-            <!-- Shital -->
-            <div class="member-card" onclick="openModal('shital')">
-                <div class="member-image-container">
-                    <img src="https://drive.google.com/uc?export=view&id=14Xq2CKH_5Hz5NXorOagFiSpIwxYrYBii" alt="Shital" class="member-image">
-                </div>
-                <h3 class="member-name">Shital</h3>
-                <p class="member-bio">The Scholarship Queen</p>
-            </div>
-            
-            <!-- Kanika Kumari -->
-            <div class="member-card" onclick="openModal('kanika')">
-                <div class="member-image-container">
-                    <img src="https://drive.google.com/uc?export=view&id=14fnrFR8EuRTFNtDjIFtHZCc-05m6-LAH" alt="Kanika Kumari" class="member-image">
-                </div>
-                <h3 class="member-name">Kanika Kumari</h3>
-                <p class="member-bio">The UP Firecracker</p>
-            </div>
-            
-            <!-- Gargee Dhalkari -->
-            <div class="member-card" onclick="openModal('gargee')">
-                <div class="member-image-container">
-                    <img src="https://drive.google.com/uc?export=view&id=14S9UaCCcU0Rh73K2QrEQZsNN83nYeBF6" alt="Gargee Dhalkari" class="member-image">
-                </div>
-                <h3 class="member-name">Gargee Dhalkari</h3>
-                <p class="member-bio">The E-Cell Head</p>
-            </div>
-            
-            <!-- Aman Kumar -->
-            <div class="member-card" onclick="openModal('aman')">
-                <div class="member-image-container">
-                    <img src="https://drive.google.com/uc?export=view&id=14aWYRQGzHJA_s18YwfD8dPyGF01UzdkE" alt="Aman Kumar" class="member-image">
-                </div>
-                <h3 class="member-name">Aman Kumar</h3>
-                <p class="member-bio">The Gadget Flexer</p>
-            </div>
-            
-            <!-- Utkarsh Kesharwani -->
-            <div class="member-card" onclick="openModal('utkarsh')">
-                <div class="member-image-container">
-                    <img src="https://drive.google.com/uc?export=view&id=14fE-WCGYct6CoXgfyDcFPgruu_5uzkij" alt="Utkarsh Kesharwani" class="member-image">
-                </div>
-                <h3 class="member-name">Utkarsh Kesharwani</h3>
-                <p class="member-bio">The Shayar</p>
-            </div>
-            
-            <!-- Someshwar -->
-            <div class="member-card" onclick="openModal('someshwar')">
-                <div class="member-image-container">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Someshwar" class="member-image">
-                </div>
-                <h3 class="member-name">Someshwar</h3>
-                <p class="member-bio">The Mystery Zombie</p>
-            </div>
-            
-            <!-- Peeyush -->
-            <div class="member-card" onclick="openModal('peeyush')">
-                <div class="member-image-container">
-                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Peeyush" class="member-image">
-                </div>
-                <h3 class="member-name">Peeyush</h3>
-                <p class="member-bio">The Zombie Philosopher</p>
             </div>
         </div>
-        
-        <div style="text-align: center; margin: 3rem 0;">
-            <a href="#" class="cta-button">Join the Horde</a>
-        </div>
-    </div>
-    
-    <!-- Modal for member details -->
-    <div id="memberModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
-            <div class="member-details" id="modalContent">
-                <!-- Content will be loaded here by JavaScript -->
-            </div>
-        </div>
-    </div>
+    </section>
     
     <footer>
-        <p class="footer-text">© 2023 Zombies Group. All rights reserved... unless you have brains.</p>
-        <p class="footer-text">"<span class="footer-highlight">Sabhi prakar ke janwaar dekhne ka ekmaatra destination</span>"</p>
-        <p class="footer-text">Made with ❤️ (and a few brains) by the Zombies</p>
+        <p class="footer-text">Join us in our quest to take over the world... one laugh at a time</p>
+        <div class="social-icons">
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+        </div>
+        <p class="copyright">© 2023 Zombies Group. All rights reserved. Brains not included.</p>
     </footer>
-    
-    <script>
-        // Function to open modal with member details
-        function openModal(memberId) {
-            const modal = document.getElementById('memberModal');
-            const modalContent = document.getElementById('modalContent');
-            
-            const members = {
-                'rupan': {
-                    name: 'Rupant Dixit',
-                    role: 'The Humorous Kanpuriya',
-                    image: 'https://drive.google.com/uc?export=view&id=14j8GofQRH_1X9iR6pK4-53diM2LfrlON',
-                    bio: 'Rupant brings the laughs to our zombie horde with his sharp wit and Kanpur roots. Despite being from nearby, he has a mysterious policy of never taking friends home - perhaps he\'s protecting us from his secret zombie lab? His humor is infectious (in a good way, not the zombie virus way).',
-                    quote: '"Kanpur is great... but you don\'t need to see my house!"'
-                },
-                'harsh': {
-                    name: 'Harsh Agrawalla',
-                    role: 'The Walking Database',
-                    image: 'https://drive.google.com/uc?export=view&id=14IYrtp1nBxuKV839qpb3GfIrWX3REH-k',
-                    bio: 'Harsh is our resident genius with a brain that stores more information than Wikipedia. He knows almost every roll number in our batch - a talent that both amazes and slightly terrifies us. His mind works at processor speeds, making him the go-to for any random fact or academic solution.',
-                    quote: '"I don\'t just know your roll number, I know what you had for breakfast yesterday."'
-                },
-                'karan': {
-                    name: 'Karan Lohiya',
-                    role: 'The Cricketer',
-                    image: 'https://drive.google.com/uc?export=view&id=14H3faT_3mFpmyR3hAOGPWHwBc3uLmEEl',
-                    bio: 'Karan brings the sportsman spirit to our zombie crew. With a cricketer\'s discipline and focus, he approaches everything with seriousness - except maybe our group shenanigans. His emotionless exterior hides a fiercely loyal teammate who\'s always ready to step up to the crease for his friends.',
-                    quote: '"Focus on the game, not the crowd."'
-                },
-                'vedant': {
-                    name: 'Vedant Pimparwar',
-                    role: 'The Roast Master',
-                    image: 'https://drive.google.com/uc?export=view&id=14Qyu6ce_-gbvD-4bVz1758oVzoZ90KOV',
-                    bio: 'Vedant from Mechanical department serves up spicy roasts hotter than any engineering project. His signature move? That mysterious one-eye blink while eating. He\'s perfected the art of the friendly insult, making every meal with him an unpredictable comedy roast session.',
-                    quote: '"I\'m not insulting you, I\'m just describing you accurately."'
-                },
-                'durbasmriti': {
-                    name: 'Durbasmriti Saha',
-                    role: 'The Bengali Humorist',
-                    image: 'https://drive.google.com/uc?export=view&id=1nPXs_NPLB-1e8WXpWiJdgQNvwK1jfdWe',
-                    bio: 'Hailing from West Bengal and representing CSE department, Durba adds a unique flavor of humor to our zombie mix. His jokes come with a distinct Bengali twist that keeps us all laughing. Whether it\'s tech humor or cultural observations, he always delivers with perfect timing.',
-                    quote: '"In Bengal, we laugh first, ask questions later!"'
-                },
-                'shital': {
-                    name: 'Shital',
-                    role: 'The Scholarship Queen',
-                    image: 'https://drive.google.com/uc?export=view&id=14Xq2CKH_5Hz5NXorOagFiSpIwxYrYBii',
-                    bio: 'Shital from Electrical department is our scholarship magnet with her famous line "Kuchh bolna tha bol diya". As leader of the girls, she balances responsibility with a wonderfully childish sense of fun. Her talent for securing funding is only matched by her talent for making us all smile.',
-                    quote: '"Scholarships? Oh, they just fall into my lap... after I write 10 applications!"'
-                },
-                'kanika': {
-                    name: 'Kanika Kumari',
-                    role: 'The UP Firecracker',
-                    image: 'https://drive.google.com/uc?export=view&id=14fnrFR8EuRTFNtDjIFtHZCc-05m6-LAH',
-                    bio: 'This UP girl from Civil department has a short fuse when it comes to anyone roasting her home state. Don\'t let her "chhoti bacchii" nickname fool you - she packs a powerful punch of personality. Her fiery spirit adds some much-needed heat to our zombie group.',
-                    quote: '"Call me small one more time, I dare you!"'
-                },
-                'gargee': {
-                    name: 'Gargee Dhalkari',
-                    role: 'The E-Cell Head',
-                    image: 'https://drive.google.com/uc?export=view&id=14S9UaCCcU0Rh73K2QrEQZsNN83nYeBF6',
-                    bio: 'As head of IITK\'s E-Cell, Gargee brings entrepreneurial spirit to our undead crew. With aspirations to become a photographer, she sees the world through a creative lens. Her signature move? Zoning out mid-conversation - probably imagining her next great shot or startup idea.',
-                    quote: '"Sorry, I was designing a new business model in my head..."'
-                },
-                'aman': {
-                    name: 'Aman Kumar',
-                    role: 'The Gadget Flexer',
-                    image: 'https://drive.google.com/uc?export=view&id=14aWYRQGzHJA_s18YwfD8dPyGF01UzdkE',
-                    bio: 'Hailing from Bihar, Aman is our tech guru with a collection of gadgets that would make Apple jealous. His signature phrase "chasma giraah haii" is as famous as his tendency to flex his latest tech acquisitions. He\'s our go-to for any tech advice or gadget envy.',
-                    quote: '"This? Oh, it\'s just the new iPhone 15 Pro Max Ultra... no big deal."'
-                },
-                'utkarsh': {
-                    name: 'Utkarsh Kesharwani',
-                    role: 'The Shayar',
-                    image: 'https://drive.google.com/uc?export=view&id=14fE-WCGYct6CoXgfyDcFPgruu_5uzkij',
-                    bio: 'Utkarsh brings poetic soul to our zombie group through Hindi Sahitya Sabha. Always ready with a Shayari or poem, he explores life with artistic curiosity. His descent academic performance is matched only by his ascent in popularity - they say he has no haters, just admirers.',
-                    quote: '"Zindagi ek safar hai suhana, yahan har zombie apna hai deewana!"'
-                },
-                'someshwar': {
-                    name: 'Someshwar',
-                    role: 'The Mystery Zombie',
-                    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
-                    bio: 'An enigma wrapped in a riddle and covered in zombie makeup, Someshwar keeps everyone guessing. His unexpected talents and hidden depths make him one of the group\'s most intriguing members. He appears when least expected and disappears just as mysteriously.',
-                    quote: '"The mystery of life isn\'t a problem to solve, but a reality to experience."'
-                },
-                'peeyush': {
-                    name: 'Peeyush',
-                    role: 'The Zombie Philosopher',
-                    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
-                    bio: 'Deep thoughts and deeper questions are Peeyush\'s domain. Whether pondering the meaning of life or the best pizza toppings, his philosophical approach adds a unique dimension to the group dynamic. He sees zombie life as the ultimate existential experience.',
-                    quote: '"To eat brains or not to eat brains - that is the question."'
-                }
-            };
-            
-            const member = members[memberId];
-            if (member) {
-                modalContent.innerHTML = `
-                    <div class="member-header">
-                        <img src="${member.image}" alt="${member.name}" class="member-details-img">
-                        <div class="member-info">
-                            <h2>${member.name}</h2>
-                            <p class="role">${member.role}</p>
-                            ${member.quote ? `<p class="member-quote">${member.quote}</p>` : ''}
-                        </div>
-                    </div>
-                    <div class="full-bio">
-                        ${member.bio}
-                    </div>
-                `;
-                modal.style.display = 'block';
-                document.body.style.overflow = 'hidden';
-            }
-        }
-        
-        // Function to close modal
-        function closeModal() {
-            document.getElementById('memberModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-        
-        // Close modal when clicking outside content
-        window.onclick = function(event) {
-            const modal = document.getElementById('memberModal');
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
-        
-        // Close modal with Escape key
-        document.onkeydown = function(evt) {
-            evt = evt || window.event;
-            if (evt.key === "Escape") {
-                closeModal();
-            }
-        };
-    </script>
 </body>
 </html>
