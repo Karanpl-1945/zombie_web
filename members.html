@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zombies - Meet The Horde</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --zombie-green: #5c8d24;
+            --zombie-dark: #2c3e50;
+            --zombie-light: #ecf0f1;
+            --zombie-accent: #e74c3c;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--zombie-dark);
+            color: var(--zombie-light);
+        }
+        
+        .header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+        }
+        
+        .header h1 {
+            font-size: 4rem;
+            color: var(--zombie-green);
+            text-shadow: 3px 3px 0 var(--zombie-accent);
+            margin-bottom: 20px;
+            font-family: 'Creepster', cursive;
+        }
+        
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: var(--zombie-light);
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            color: var(--zombie-green);
+            transform: translateX(-5px);
+        }
+        
+        .members-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        
+        .member-section {
+            display: flex;
+            margin-bottom: 60px;
+            background-color: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .member-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+        }
+        
+        .member-img-container {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .member-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-right: 3px solid var(--zombie-green);
+        }
+        
+        .member-info {
+            flex: 2;
+            padding: 30px;
+        }
+        
+        .member-name {
+            font-size: 2rem;
+            color: var(--zombie-green);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .member-name::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--zombie-accent);
+        }
+        
+        .member-desc {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .member-quote {
+            font-style: italic;
+            padding: 15px;
+            background-color: rgba(92, 141, 36, 0.2);
+            border-left: 3px solid var(--zombie-green);
+            margin: 20px 0;
+        }
+        
+        .member-facts {
+            margin-top: 20px;
+        }
+        
+        .fact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .fact-icon {
+            color: var(--zombie-green);
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        footer {
+            background-color: #1a1a1a;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        
+        .footer-text {
+            margin-bottom: 20px;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .social-icon {
+            color: var(--zombie-light);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            color: var(--zombie-green);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            font-size: 0.8rem;
+            color: #777;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .member-section {
+                flex-direction: column;
+            }
+            
+            .member-img-container {
+                min-width: 100%;
+            }
+            
+            .member-img {
+                border-right: none;
+                border-bottom: 3px solid var(--zombie-green);
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="header">
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back</a>
+        <h1>Meet The Horde</h1>
+    </div>
+    
+    <div class="members-container">
+        <!-- Rupant Dixit -->
+        <section class="member-section" id="rupant">
+            <div class="member-img-container">
+                <img src="Rupant Dixit.jpg" alt="Rupant Dixit" class="member-img">
+            </div>
+            <div class="member-info">
+                <h2 class="member-name">Rupant Dixit</h2>
+                <p class="member-desc">The Kanpur boy with a killer sense of humor who somehow always manages to dodge the "let's visit your home" requests from friends. Rupant is that guy who can lighten up any situation with his witty remarks and infectious laughter.</p>
+                
+                <div class="member-quote">
+                    "My house? Oh, it's under renovation... permanently!"
+                </div>
+                
+                <div class="member-facts">
+                    <div class="fact-item">
+                        <i class="fas fa-laugh-beam fact-icon"></i>
+                        <span>Special Power: Turning awkward situations into comedy shows</span>
+                    </div>
+                    <div class="fact-item">
+                        <i class="fas fa-home fact-icon"></i>
+                        <span>Mystery: The legendary Kanpur home no one has seen</span>
+                    </div>
+                    <div class="fact-item">
+                        <i class="fas fa-users fact-icon"></i>
+                        <span>Role in Group: Chief Entertainment Officer</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Harsh Agrawalla -->
+        <section class="member-section" id="harsh">
+            <div class="member-img-container">
+                <img src="Harsh Agrawalla.jpg" alt="Harsh Agrawalla" class="member-img">
+            </div>
+            <div class="member-info">
+                <h2 class="member-name">Harsh Agrawalla</h2>
+                <p class="member-desc">The human database of your batch who probably knows more about your academic life than you do. Harsh is the go-to person when you need to know someone's roll number, course schedule, or basically any information that normally would require administrative access.</p>
+                
+                <div class="member-quote">
+                    "Oh, you're in section B? Your roll number must be between 35-70 then."
+                </div>
+                
+                <div class="member-facts">
+                    <div class="fact-item">
+                        <i class="fas fa-brain fact-icon"></i>
+                        <span>Special Power: Instant recall of any academic information</span>
+                    </div>
+                    <div class="fact-item">
+                        <i class="fas fa-user-graduate fact-icon"></i>
+                        <span>Known As: The Walking University Database</span>
+                    </div>
+                    <div class="fact-item">
+                        <i class="fas fa-users fact-icon"></i>
+                        <span>Role in Group: The Human Google</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Karan Lohiya -->
+        <section class="member-section" id="karan">
+            <div class="member-img-container">
+                <img src="Karan_Lohiya.jpg" alt="Karan Lohiya" class="member-img">
+            </div>
+            <div class="member-info">
+                <h2 class="member-name">Karan Lohiya</h2>
+                <p class="member-desc">The cricket enthusiast with a professional mindset who approaches everything with the seriousness of a test match. While others joke around, Karan is the one calculating the next strategic move. His emotionless exterior hides... well, we're still trying to figure that out.</p>
+                
+                <div class="member-quote">
+                    "Let's focus on the task at hand."
+                </div>
+                
+                <div class="member-facts">
+                    <div class="fact-item">
+                        <i class="fas fa-baseball-ball fact-icon"></i>
+                        <span>Special Power: Unshakable focus and discipline</span>
+                    </div>
+                    <div class="fact-item">
+                        <i class="fas fa-poker-face fact-icon"></i>
+                        <span>Known As: The Stoic Strategist</span>
+                    </div>
+                    <div class="fact-item">
+                        <i class="fas fa-users fact-icon"></i>
+                        <span>Role in Group: The Anchor</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Vedant Pimparwar -->
+        <section class="member-section" id="vedant">
+            <div class="member-img-container">
+                <img src="Vedant Pimparwar.jpg" alt="Vedant Pimparwar" class="member-img">
+            </div>
+            <div class="member-info">
+                <h2 class="member-name">Vedant Pimparwar</h2>
+                <p class="member-desc">The mechanical department's resident roaster whose one-eye blinking during meals is as legendary as his burns. Vedant can dismantle your ego faster than he can dismantle an engine, all while enjoying his food with that characteristic wink.</p>
+                
+                <div class="member-quote">
+                    "I'm not insulting you, I'm just describing you accurately."
+                </div>
+                
+                <div class="member-facts">
+                    <div class="fact-item">
+                        <i class="fas fa-fire fact-icon"></i>
+                        <span>Special Power: Spontaneous combustion (of others' self-esteem)</span>
+                    </div>
+                    <div class="fact-item">
+                        <i class="fas fa-eye fact-icon"></i>
+                        <span>Signature Move: The Chewing Wink</span>
+                    </div>
+                    <div class="fact-item">
+                        <i class="fas fa-users fact-icon"></i>
+                        <span>Role in Group: Chief Roasting Officer</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Durba Smriti Saha -->
+        <section class="member-section" id="durba">
+            <div class="member-img-container">
+                <img src="Durba_Smiriti.jpeg" alt="Durba Smriti Saha" class="member-img">
+            </div>
+            <div class="member-info">
+                <h2 class="member-name">Durba Smriti Saha</h2>
+                <p class="member-desc">The Bengali powerhouse from CSE who brings both intellect and humor to the table. Durba's wit is as sharp as her coding skills, making her the perfect combo of brains and laughs in the Zombies horde.</p>
+                
+                <div class="member-quote">
+                    "In Bengal, we have two passions: food and intellectual debates. Mostly food."
+                </div>
+                
+                <div class="member-facts">
+                    <div class="fact-item">
+                        <i class="fas fa-laugh-squint fact-icon"></i>
+                        <span>Special Power: Cultural humor with academic undertones</span>
+                    </div>
+                    <div class="fact-item">
+                        <i class="fas fa-code fact-icon"></i>
+                        <span>Known As: The Laughing Coder</span>
+                    </div>
+                    <div class="fact-item">
+                        <i class="fas fa-users fact-icon"></i>
+                        <span>Role in Group: Cultural Ambassador</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Shital Niras -->
+        <section class="member-section" id="shital">
+            <div class="member-img-container">
+                <img src="Shital Niras.jpg" alt="Shital Niras" class="member-img">
+            </div>
+            <div class="member-info">
+                <h2 class="member-name">Shital Niras</h2>
+                <p class="member-desc">The electrical department's scholarship magnet whose famous "Kuchh bolna tha bol diya" line perfectly captures her unfiltered charm. Shital leads the girls with a mix of maturity and delightful childishness that keeps everyone on their toes.</p>
+                
+                <div class="member-quote">
+                    "Kuchh bolna tha... bol diya!"
+                </div>
+                
+                <div class="member-facts">
+                    <div class="fact-item">
+                        <i class="fas fa-money-bill-wave fact-icon"></i>
+                        <span>Special Power: Attracting scholarship money</span>
+                    </div>
+                    <div class="fact-item">
+                        <i class="fas fa-bolt fact-icon"></i>
+                        <span>Known As: The Electric Queen</span>
+                    </div>
+                    <div class="fact-item">
+                        <i class="fas fa-users fact-icon"></i>
+                        <span>Role in Group: Girl Gang Leader</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Kanika Kumari -->
+        <section class="member-section" id="kanika">
+            <div class="member-img-container">
+                <img src="Kanika Kumari.jpg" alt="Kanika Kumari" class="member-img">
+            </div>
+            <div class="member-info">
+                <h2 class="member-name">Kanika Kumari</h2>
+                <p class="member-desc">The UP firebrand from civil department who won't tolerate any slander about her homeland. Kanika may be called "chhoti bacchii" by the group, but her temper and spirit are anything but small.</p>
+                
+                <div class="member-quote">
+                    "UP ke baare mein kuchh bhi bola toh... samajh lo!"
+                </div>
+                
+                <div class="member-facts">
+                    <div class="fact-item">
+                        <i class="fas fa-fire-alt fact-icon"></i>
+                        <span>Special Power: Instant combustion when UP is mentioned</span>
+                    </div>
+                    <div class="fact-item">
+                        <i class="fas fa-child fact-icon"></i>
+                        <span>Known As: Chhoti Bacchii (but don't say it to her face)</span>
+                    </div>
+                    <div class="fact-item">
+                        <i class="fas fa-users fact-icon"></i>
+                        <span>Role in Group: The Feisty Protector</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Gargee Dhalkari -->
+        <section class="member-section" id="gargee">
+            <div class="member-img-container">
+                <img src="Gargee Dhalkari.jpg" alt="Gargee Dhalkari" class="member-img">
+            </div>
+            <div class="member-info">
+                <h2 class="member-name">Gargee Dhalkari</h2>
+                <p class="member-desc">The visionary head of E-Cell with dreams of becoming a photographer, Gargee has mastered the art of zoning out mid-conversation - probably because she's mentally framing the perfect shot or planning the next big entrepreneurial venture.</p>
+                
+                <div class="member-quote">
+                    "Wait, what were we talking about? I was thinking about this great photo composition..."
+                </div>
+                
+                <div class="member-facts">
+                    <div class="fact-item">
+                        <i class="fas fa-camera fact-icon"></i>
+                        <span>Special Power: Seeing the world through a viewfinder</span>
+                    </div>
+                    <div class="fact-item">
+                        <i class="fas fa-lightbulb fact-icon"></i>
+                        <span>Known As: The Entrepreneurial Artist</span>
+                    </div>
+                    <div class="fact-item">
+                        <i class="fas fa-users fact-icon"></i>
+                        <span>Role in Group: The Creative Visionary</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Aman Kumar -->
+        <section class="member-section" id="aman">
+            <div class="member-img-container">
+                <img src="Aman Kumar.jpg" alt="Aman Kumar" class="member-img">
+            </div>
+            <div class="member-info">
+                <h2 class="member-name">Aman Kumar</h2>
+                <p class="member-desc">The Bihari tech enthusiast whose collection of gadgets would put an Apple store to shame. Aman's signature "chasma giraah haii" line is as much a part of his identity as his constant need to flex the latest tech.</p>
+                
+                <div class="member-quote">
+                    "Chasma giraah haii... oh wait, let me take a selfie with my new iPhone first."
+                </div>
+                
+                <div class="member-facts">
+                    <div class="fact-item">
+                        <i class="fas fa-mobile-alt fact-icon"></i>
+                        <span>Special Power: Acquiring gadgets before they're cool</span>
+                    </div>
+                    <div class="fact-item">
+                        <i class="fas fa-glasses fact-icon"></i>
+                        <span>Signature Move: The Spectacle Drop</span>
+                    </div>
+                    <div class="fact-item">
+                        <i class="fas fa-users fact-icon"></i>
+                        <span>Role in Group: Tech Guru & Flex Master</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Utkarsh Kesharwani -->
+        <section class="member-section" id="utkarsh">
+            <div class="member-img-container">
+                <img src="Utkarsh Kesharvani.jpg" alt="Utkarsh Kesharwani" class="member-img">
+            </div>
+            <div class="member-info">
+                <h2 class="member-name">Utkarsh Kesharwani</h2>
+                <p class="member-desc">The Hindi Sahitya Sabha's poetic soul who finds beauty in shayari and life's simple pleasures. Utkarsh's gentle nature and intellectual curiosity make him the group's resident philosopher with exactly zero haters.</p>
+                
+                <div class="member-quote">
+                    "Zindagi ek kavita hai, bas use sahaj bhav se padhna aana chahiye..."
+                </div>
+                
+                <div class="member-facts">
+                    <div class="fact-item">
+                        <i class="fas fa-pen-fancy fact-icon"></i>
+                        <span>Special Power: Turning everyday moments into poetry</span>
+                    </div>
+                    <div class="fact-item">
+                        <i class="fas fa-heart fact-icon"></i>
+                        <span>Known As: The Peaceful Poet</span>
+                    </div>
+                    <div class="fact-item">
+                        <i class="fas fa-users fact-icon"></i>
+                        <span>Role in Group: Moral Compass & Cultural Custodian</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Someshwar -->
+        <section class="member-section" id="someshwar">
+            <div class="member-img-container">
+                <img src="https://via.placeholder.com/400x500/2c3e50/5c8d24?text=Someshwar" alt="Someshwar" class="member-img">
+            </div>
+            <div class="member-info">
+                <h2 class="member-name">Someshwar</h2>
+                <p class="member-desc">The mysterious member of the Zombies crew whose presence adds an air of intrigue to the group. Someshwar's quiet demeanor hides depths that the group is still exploring.</p>
+                
+                <div class="member-quote">
+                    "Sometimes silence speaks louder than words."
+                </div>
+                
+                <div class="member-facts">
+                    <div class="fact-item">
+                        <i class="fas fa-question fact-icon"></i>
+                        <span>Special Power: Maintaining an aura of mystery</span>
+                    </div>
+                    <div class="fact-item">
+                        <i class="fas fa-user-secret fact-icon"></i>
+                        <span>Known As: The Enigma</span>
+                    </div>
+                    <div class="fact-item">
+                        <i class="fas fa-users fact-icon"></i>
+                        <span>Role in Group: The Mysterious Element</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Peeyush -->
+        <section class="member-section" id="peeyush">
+            <div class="member-img-container">
+                <img src="https://via.placeholder.com/400x500/2c3e50/5c8d24?text=Peeyush" alt="Peeyush" class="member-img">
+            </div>
+            <div class="member-info">
+                <h2 class="member-name">Peeyush</h2>
+                <p class="member-desc">The final piece of the Zombies puzzle who completes this eclectic group of individuals. Peeyush brings his own unique flavor to the mix, making the horde truly complete.</p>
+                
+                <div class="member-quote">
+                    "Every group needs someone to keep them guessing - that's me!"
+                </div>
+                
+                <div class="member-facts">
+                    <div class="fact-item">
+                        <i class="fas fa-puzzle-piece fact-icon"></i>
+                        <span>Special Power: Being the missing piece</span>
+                    </div>
+                    <div class="fact-item">
+                        <i class="fas fa-smile-wink fact-icon"></i>
+                        <span>Known As: The Wild Card</span>
+                    </div>
+                    <div class="fact-item">
+                        <i class="fas fa-users fact-icon"></i>
+                        <span>Role in Group: The Completer</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <p class="footer-text">The Zombies - Where ordinary people become extraordinary friends</p>
+        <div class="social-icons">
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+        </div>
+        <p class="copyright">© 2023 Zombies Group. All rights reserved. No brains were harmed in making this website.</p>
+    </footer>
+</body>
+</html>
