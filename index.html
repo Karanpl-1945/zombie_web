@@ -124,14 +124,22 @@
             background-color: rgba(255,255,255,0.1);
             border-radius: 10px;
             overflow: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.5s ease;
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
             position: relative;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        
+        .member-card.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         .member-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-10px) scale(1.03);
             box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+            z-index: 10;
         }
         
         .member-img {
@@ -155,6 +163,7 @@
             font-size: 0.9rem;
             margin-bottom: 15px;
             color: #ccc;
+            min-height: 40px;
         }
         
         .view-btn {
@@ -237,30 +246,123 @@
     <section class="members-section">
         <h2 class="section-title">The Undead Crew</h2>
         <div class="members-grid">
+            <!-- Rupant Dixit -->
             <div class="member-card">
                 <img src="Rupant Dixit.jpg" alt="Rupant Dixit" class="member-img">
                 <div class="member-info">
                     <h3 class="member-name">Rupant Dixit</h3>
-                    <p class="member-desc">The humorist from Kanpur who never takes friends home...</p>
+                    <p class="member-desc">Kanpur's humorist with a mysterious home no one's seen</p>
                     <a href="members.html#rupant" class="view-btn">View Profile</a>
                 </div>
             </div>
             
+            <!-- Harsh Agrawalla -->
             <div class="member-card">
                 <img src="Harsh Agrawalla.jpg" alt="Harsh Agrawalla" class="member-img">
                 <div class="member-info">
                     <h3 class="member-name">Harsh Agrawalla</h3>
-                    <p class="member-desc">The walking encyclopedia who knows everyone's roll numbers...</p>
+                    <p class="member-desc">Human database who knows everyone's roll numbers</p>
                     <a href="members.html#harsh" class="view-btn">View Profile</a>
                 </div>
             </div>
             
+            <!-- Karan Lohiya -->
             <div class="member-card">
                 <img src="Karan_Lohiya.jpg" alt="Karan Lohiya" class="member-img">
                 <div class="member-info">
                     <h3 class="member-name">Karan Lohiya</h3>
-                    <p class="member-desc">The cricketer with a sportsperson mentality and emotionless demeanor...</p>
+                    <p class="member-desc">Serious cricketer with an emotionless poker face</p>
                     <a href="members.html#karan" class="view-btn">View Profile</a>
+                </div>
+            </div>
+            
+            <!-- Vedant Pimparwar -->
+            <div class="member-card">
+                <img src="Vedant Pimparwar.jpg" alt="Vedant Pimparwar" class="member-img">
+                <div class="member-info">
+                    <h3 class="member-name">Vedant Pimparwar</h3>
+                    <p class="member-desc">Mechanical roaster with signature one-eye blink</p>
+                    <a href="members.html#vedant" class="view-btn">View Profile</a>
+                </div>
+            </div>
+            
+            <!-- Durba Smriti Saha -->
+            <div class="member-card">
+                <img src="Durba_Smiriti.jpeg" alt="Durba Smriti Saha" class="member-img">
+                <div class="member-info">
+                    <h3 class="member-name">Durba Smriti Saha</h3>
+                    <p class="member-desc">Bengali CSE wit with sharp humor and sharper mind</p>
+                    <a href="members.html#durba" class="view-btn">View Profile</a>
+                </div>
+            </div>
+            
+            <!-- Shital Niras -->
+            <div class="member-card">
+                <img src="Shital Niras.jpg" alt="Shital Niras" class="member-img">
+                <div class="member-info">
+                    <h3 class="member-name">Shital Niras</h3>
+                    <p class="member-desc">"Kuchh bolna tha bol diya" electrical scholarship queen</p>
+                    <a href="members.html#shital" class="view-btn">View Profile</a>
+                </div>
+            </div>
+            
+            <!-- Kanika Kumari -->
+            <div class="member-card">
+                <img src="Kanika Kumari.jpg" alt="Kanika Kumari" class="member-img">
+                <div class="member-info">
+                    <h3 class="member-name">Kanika Kumari</h3>
+                    <p class="member-desc">UP's fiery civil girl who won't tolerate state slander</p>
+                    <a href="members.html#kanika" class="view-btn">View Profile</a>
+                </div>
+            </div>
+            
+            <!-- Gargee Dhalkari -->
+            <div class="member-card">
+                <img src="Gargee Dhalkari.jpg" alt="Gargee Dhalkari" class="member-img">
+                <div class="member-info">
+                    <h3 class="member-name">Gargee Dhalkari</h3>
+                    <p class="member-desc">E-Cell head & aspiring photographer who zones out</p>
+                    <a href="members.html#gargee" class="view-btn">View Profile</a>
+                </div>
+            </div>
+            
+            <!-- Aman Kumar -->
+            <div class="member-card">
+                <img src="Aman Kumar.jpg" alt="Aman Kumar" class="member-img">
+                <div class="member-info">
+                    <h3 class="member-name">Aman Kumar</h3>
+                    <p class="member-desc">Bihari tech flexer with his "chasma giraah haii"</p>
+                    <a href="members.html#aman" class="view-btn">View Profile</a>
+                </div>
+            </div>
+            
+            <!-- Utkarsh Kesharwani -->
+            <div class="member-card">
+                <img src="Utkarsh Kesharvani.jpg" alt="Utkarsh Kesharwani" class="member-img">
+                <div class="member-info">
+                    <h3 class="member-name">Utkarsh Kesharwani</h3>
+                    <p class="member-desc">Hindi Sahitya's poetic soul with zero haters</p>
+                    <a href="members.html#utkarsh" class="view-btn">View Profile</a>
+                </div>
+            </div>
+            
+            <!-- Someshwar -->
+            <div class="member-card">
+                <img src="https://via.placeholder.com/400x500/2c3e50/5c8d24?text=Someshwar" alt="Someshwar" class="member-img">
+                <div class="member-info">
+                    <h3 class="member-name">Someshwar</h3>
+                    <p class="member-desc">The enigmatic presence in the Zombies crew</p>
+                    <a href="members.html#someshwar" class="view-btn">View Profile</a>
+                </div>
+            </div>
+            
+            <!-- Peeyush -->
+            <div class="member-card">
+                <img src="Peeyush.jpeg" alt="Peeyush" class="member-img">
+                <div class="member-info">
+                    <h3 class="member-name">Peeyush</h3>
+                    <p class="member-desc">The final piece completing the Zombies puzzle</p>
+                    <a href="members.html#peeyush" class="view-btn">View Profile</a>
                 </div>
             </div>
         </div>
@@ -276,5 +378,32 @@
         </div>
         <p class="copyright">© 2023 Zombies Group. All rights reserved. Brains not included.</p>
     </footer>
+
+    <script>
+        // Animation for member cards sliding in
+        document.addEventListener('DOMContentLoaded', function() {
+            const memberCards = document.querySelectorAll('.member-card');
+            
+            function checkVisibility() {
+                memberCards.forEach((card, index) => {
+                    const cardTop = card.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (cardTop < windowHeight - 100) {
+                        // Add delay based on index for staggered animation
+                        setTimeout(() => {
+                            card.classList.add('visible');
+                        }, index * 100);
+                    }
+                });
+            }
+            
+            // Initial check
+            checkVisibility();
+            
+            // Check on scroll
+            window.addEventListener('scroll', checkVisibility);
+        });
+    </script>
 </body>
 </html>
